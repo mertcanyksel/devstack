@@ -1,0 +1,13 @@
+---
+  - hosts: all
+    become: true
+    tasks:
+    - name: Git checkout
+      ansible.builtin.git:
+        repo: 'https://opendev.org/openstack/devstack.git'
+        dest: /home/ubuntu/devstack-install-playbook-1/devstack
+       
+    - name: kopyala
+      copy:
+        src: /home/ubuntu/devstack-install-playbook-1/devstack/samples/local.conf 
+        dest: /home/ubuntu/devstack-install-playbook-1/devstack
